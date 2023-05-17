@@ -1,0 +1,12 @@
+################################ RSquared and Adjuested RSquared ##########################
+def get_rsquared(a,b):
+    ##### get the Rsquared and Adjusted Rsquared #################
+    ##### example >> get_rsquared(y_test,_predict)
+    
+    print("############## Getting Rsquared and Adjusted Rsquared ########################")
+    import statsmodels.api as sm
+    a_addConstant = sm.add_constant(a)
+    result = sm.OLS(b,a_addConstant).fit()
+    rsquared,rsquared_adj = result.rsquared, result.rsquared_adj
+    return rsquared,rsquared_adj
+###########################################################################################
